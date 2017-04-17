@@ -52,7 +52,7 @@ public class DisplayUser extends AppCompatActivity {
             phone.setText(rs.getString(rs.getColumnIndex(UsersDBHelper.USERS_COLUMN_PHONE)));
             plainPass.setText(rs.getString(rs.getColumnIndex(UsersDBHelper.USERS_COLUMN_PASSWORD)));
 
-            salt.setText(rs.getString(rs.getColumnIndex(UsersDBHelper.USERS_COLUMN_SALT));
+            salt.setText(rs.getBlob(rs.getColumnIndex(UsersDBHelper.USERS_COLUMN_SALT)).toString());
             passWithSalt.setText(rs.getString(rs.getColumnIndex(UsersDBHelper.USERS_COLUMN_AFTER_SALT)));
             encryptedNoSalt.setText(rs.getString(rs.getColumnIndex(UsersDBHelper.USERS_COLUMN_ENCRYPTED_NOSALT)));
             encryptedWithSalt.setText(rs.getString(rs.getColumnIndex(UsersDBHelper.USERS_COLUMN_ENCRYPTED_PASS)));
