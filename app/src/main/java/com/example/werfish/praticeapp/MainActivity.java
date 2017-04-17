@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Insert test records to the database
-        if (!db.nameExists("Robert Mazurowski") && !db.nameExists("Stephen Stvens") && !db.nameExists("Tiger Vrom Woods"))
+        if (db.numberOfRows() == 0)
         {
         db.insertUser("Robert Mazurowski","someEmail@gmail.com","0048098141234","Vegetables");
         db.insertUser("Stephen Stvens","stevel@stephen.com","0044806472867","Stv123");
