@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+    //These methods were used used at the start and are not longer nescessary
     private boolean checkDataBase() {
         SQLiteDatabase checkDB = null;
         try {
