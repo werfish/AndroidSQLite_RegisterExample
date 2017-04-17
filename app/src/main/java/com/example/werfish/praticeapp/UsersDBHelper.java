@@ -26,7 +26,10 @@ public class UsersDBHelper  extends SQLiteOpenHelper {
     public static final String USERS_COLUMN_EMAIL = "Email";
     public static final String USERS_COLUMN_PHONE = "Phone";
     public static final String USERS_COLUMN_PASSWORD = "Password";
+    public static final String USERS_COLUMN_AFTER_SALT = "Password_Salt";
+    public static final String USERS_COLUMN_SALT = "Salt";
     public static final String USERS_COLUMN_ENCRYPTED_PASS = "Encrypted_Pass";
+
 
     public UsersDBHelper(Context context) {
         super(context, DATABASE_NAME , null, 1);
@@ -152,7 +155,7 @@ public class UsersDBHelper  extends SQLiteOpenHelper {
             md.update(salt);
             md.update(pass.getBytes());
             byte byteData[] = md.digest();
-            
+
             for(int i = 0; i < byteData.length; i++)
                 sb.append(Integer.toString((byteData[i] & 0xFF) + 0x100, 16).substring(1));
 
