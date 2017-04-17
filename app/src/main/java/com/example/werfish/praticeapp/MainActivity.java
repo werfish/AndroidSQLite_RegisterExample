@@ -154,12 +154,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-    private void clearDB() {
-        for(int i = 1; i == db.numberOfRows();i++){
-            db.deleteUser(i);
-        }
-    }
-
-
+    
 }
