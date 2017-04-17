@@ -27,6 +27,9 @@ On failing any of the tests, validation is stopped and a Toast is shown to the u
 # Good Source on Password Encryption and Practices
 
 Some sources I used to learn about password encryption.
+
 http://howtodoinjava.com/security/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/
+
 https://crackstation.net/hashing-security.htm
+
 https://www.owasp.org/index.php/Password_Storage_Cheat_Sheet
