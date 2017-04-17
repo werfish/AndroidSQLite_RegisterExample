@@ -12,7 +12,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by Werfish on 09.04.2017.
@@ -28,6 +27,7 @@ public class UsersDBHelper  extends SQLiteOpenHelper {
     public static final String USERS_COLUMN_PASSWORD = "Password";
     public static final String USERS_COLUMN_AFTER_SALT = "Password_Salt";
     public static final String USERS_COLUMN_SALT = "Salt";
+    public static final String USERS_COLUMN_ENCRYPTED_NOSALT = "Encrypted_NoSalt";
     public static final String USERS_COLUMN_ENCRYPTED_PASS = "Encrypted_Pass";
 
 
@@ -39,7 +39,7 @@ public class UsersDBHelper  extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // TODO Auto-generated method stub
         db.execSQL(
-                "CREATE TABLE IF NOT EXISTS Users (User_ID Integer Primary Key,Name VARCHAR, Email VARCHAR, Phone VARCHAR, Password VARCHAR, Encrypted_Pass VARCHAR);");
+                "CREATE TABLE IF NOT EXISTS Users (User_ID Integer Primary Key,Name VARCHAR, Email VARCHAR, Phone VARCHAR, Password VARCHAR, Password_Salt VARCHAR, Salt VARCHAR, Encrypted_NoSalt VARCHAR, Encrypted_Pass VARCHAR);");
     }
 
     @Override
@@ -56,7 +56,16 @@ public class UsersDBHelper  extends SQLiteOpenHelper {
         contentValues.put("email", email);
         contentValues.put("phone", phone);
         contentValues.put("password", password);
-        contentValues.put("encrypted_pass", encryptPass(password));
+
+        //Before putting oother values lets create the salt
+        byte[] salt = getSalt();
+
+        contentValues.put("password_salt", salt.toString() + password);
+        contentValues.put("salt", salt);
+        //Enrypting with just SHA-256
+        contentValues.put("encrypted_noSalt", encryptPass(password));
+        //Adding the salt to the SHA-256
+        contentValues.put("encrypted_pass", encryptPassWithSalt(password,salt));
         db.insert("Users", null, contentValues);
         return true;
     }
@@ -167,17 +176,19 @@ public class UsersDBHelper  extends SQLiteOpenHelper {
     }
 
     //Add salt
-    private byte[] getSalt() throws NoSuchAlgorithmException, NoSuchProviderException
-    {
-        //Always use a SecureRandom generator
-        SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
+    private byte[] getSalt() {
         //Create array for salt
         byte[] salt = new byte[32];
-        //Get a random salt
-        sr.nextBytes(salt);
-        //return salt
+        try {
+            //Always use a SecureRandom generator
+            SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
+            //Get a random salt
+            sr.nextBytes(salt);
+            //return salt
+        }catch (Exception e1){
+            e1.printStackTrace();
+        }
         return salt;
     }
-}
 }
 
