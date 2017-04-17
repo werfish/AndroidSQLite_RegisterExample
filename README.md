@@ -1,5 +1,5 @@
 # AndroidSQLite_RegisterExample
-This is an example a user Registration screen implementing some basic user input validation,SQLite database and enrypting passwords with
+This is an example for a user Registration screen implementing some basic user input validation,SQLite database and enrypting passwords with
 SHA-256 algorithm and password salting. This application is created for practice reasons and will be a part of a future tutorial.
 
 The application does not use threads for running queries for simplicity reasons. The same reasons apply to not using fragments.
