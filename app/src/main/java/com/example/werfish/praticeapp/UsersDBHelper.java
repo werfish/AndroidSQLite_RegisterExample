@@ -88,7 +88,7 @@ public class UsersDBHelper  extends SQLiteOpenHelper {
         return true;
     }
 
-    //this will be not needed, did this just for educational purpose (Although maybe later)
+    //this will be not needed, did this just for educational purpose (Although maybe later could be userfull)
     public Integer deleteUser (Integer id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete("Users", "id = ? ", new String[] { Integer.toString(id) });
