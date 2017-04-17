@@ -24,3 +24,9 @@ SHA-256 encryption and then the passwrod after Salting.
 Insert the records to the database
 
 On failing any of the tests, validation is stopped and a Toast is shown to the user containing apriopriate message.
+# Good Source on Password Encryption and Practices
+
+Some sources I used to learn about password encryption.
+http://howtodoinjava.com/security/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/
+https://crackstation.net/hashing-security.htm
+https://www.owasp.org/index.php/Password_Storage_Cheat_Sheet
