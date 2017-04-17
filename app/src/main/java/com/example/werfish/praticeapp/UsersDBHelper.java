@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -128,13 +130,13 @@ public class UsersDBHelper  extends SQLiteOpenHelper {
     private String encryptPass(String pass){
         StringBuffer sb = new StringBuffer();
         try{
-        MessageDigest md = MessageDigest.getInstance("SHA-256");
-        md.update(pass.getBytes());
-        byte byteData[] = md.digest();
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(pass.getBytes());
+            byte byteData[] = md.digest();
 
 
-        for(int i = 0; i < byteData.length; i++)
-            sb.append(Integer.toString((byteData[i] & 0xFF) + 0x100, 16).substring(1));
+            for(int i = 0; i < byteData.length; i++)
+                sb.append(Integer.toString((byteData[i] & 0xFF) + 0x100, 16).substring(1));
 
         } catch (NoSuchAlgorithmException e1) {
             // TODO Auto-generated catch block
@@ -142,5 +144,37 @@ public class UsersDBHelper  extends SQLiteOpenHelper {
         }
         return sb.toString();
     }
+
+    private String encryptPassWithSalt(String pass, byte[] salt){
+        StringBuffer sb = new StringBuffer();
+        try{
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(salt);
+            md.update(pass.getBytes());
+            byte byteData[] = md.digest();
+            
+            for(int i = 0; i < byteData.length; i++)
+                sb.append(Integer.toString((byteData[i] & 0xFF) + 0x100, 16).substring(1));
+
+        } catch (NoSuchAlgorithmException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        return sb.toString();
+    }
+
+    //Add salt
+    private byte[] getSalt() throws NoSuchAlgorithmException, NoSuchProviderException
+    {
+        //Always use a SecureRandom generator
+        SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
+        //Create array for salt
+        byte[] salt = new byte[32];
+        //Get a random salt
+        sr.nextBytes(salt);
+        //return salt
+        return salt;
+    }
+}
 }
 
