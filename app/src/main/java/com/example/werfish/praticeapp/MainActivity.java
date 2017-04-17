@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
         {
         db.insertUser("Robert Mazurowski","someEmail@gmail.com","0048098141234","Vegetables");
         db.insertUser("Stephen Stvens","stevel@stephen.com","0044806472867","Stv123");
-        db.insertUser("Tiger Vrom Woods","tigerFromWoodsl@gmail.com","NONE","Jungle987");
+        db.insertUser("Tiger Vrom Woods","tigerFromWoodsl@gmail.com","NONE","Vegetables");
+        db.insertUser("AnotherGuy WithTheSamePassword","iHavegenericPassword@gmail.com","0094666666","Vegetables");
         }
 
         //set onclick listener for the adding button
