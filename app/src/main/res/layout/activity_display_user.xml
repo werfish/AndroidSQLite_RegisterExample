@@ -37,7 +37,8 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="ID:"
-                android:id="@+id/textView2" />
+                android:id="@+id/textView2"
+                android:textColor="@android:color/black"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -59,7 +60,8 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Name: "
-                android:id="@+id/nameText" />
+                android:id="@+id/nameText"
+                android:textColor="@android:color/black"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -80,7 +82,8 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Email: "
-                android:id="@+id/textView4" />
+                android:id="@+id/textView4"
+                android:textColor="@android:color/black"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -101,7 +104,8 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Phone: "
-                android:id="@+id/textView3" />
+                android:id="@+id/textView3"
+                android:textColor="@android:color/black"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -122,7 +126,8 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="PlainPassword: "
-                android:id="@+id/textView5" />
+                android:id="@+id/textView5"
+                android:textColor="@android:color/black"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -139,7 +144,7 @@
             android:text="Encryption Details"
             android:id="@+id/textView6"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="15dp"/>
 
         <LinearLayout
             android:orientation="vertical"
