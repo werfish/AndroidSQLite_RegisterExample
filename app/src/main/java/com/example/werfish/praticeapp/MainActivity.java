@@ -36,9 +36,7 @@ public class MainActivity extends AppCompatActivity {
         db.insertUser("Robert Mazurowski","someEmail@gmail.com","0048098141234","Vegetables");
         db.insertUser("Stephen Stvens","stevel@stephen.com","0044806472867","Stv123");
         db.insertUser("Tiger Vrom Woods","tigerFromWoodsl@gmail.com","NONE","Jungle987");
-        }//else {
-         //  db.reset();
-      //  }
+        }
 
         //set onclick listener for the adding button
         btnAdd.setOnClickListener(new View.OnClickListener() {
@@ -142,7 +140,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, UsersActivity.class);
                 startActivity(intent);
                 clearFields();
-                //MainActivity.this.finish();
             }
 
             private void clearFields(){
