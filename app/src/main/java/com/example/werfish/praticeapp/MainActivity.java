@@ -164,28 +164,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    //These methods were used used at the start and are not longer nescessary
-    private boolean checkDataBase() {
-        SQLiteDatabase checkDB = null;
-        try {
-            checkDB = SQLiteDatabase.openDatabase("UsersDB", null,
-                    SQLiteDatabase.OPEN_READONLY);
-            checkDB.close();
-        } catch (SQLiteException e) {
-            // database doesn't exist yet.
-        }
-        return checkDB != null;
-    }
-
-    private SQLiteDatabase createDB() {
-        SQLiteDatabase db = openOrCreateDatabase("PracticeDB", MODE_PRIVATE, null);
-        db.execSQL("CREATE TABLE IF NOT EXISTS Users (Name VARCHAR, email VARCHAR, phone VARCHAR, Password VARCHAR);");
-        db.execSQL("INSERT INTO Users VALUES ('Robert Mazurowski','someEmail@gmail.com','0048098141234','Vegetables');");
-        db.execSQL("INSERT INTO Users VALUES ('Stephen Stvens','stevel@stephen.com','0044806472867','Stv123')");
-        db.execSQL("INSERT INTO Users VALUES ('Tiger Vrom Woods','tigerFromWoodsl@gmail.com','NONE','Jungle987');");
-
-        return db;
-    }
-
 }
