@@ -23,4 +23,4 @@ SHA-256 encryption and then the passwrod after Salting.
 - Check if the password and RepeatedPassword field values match? If they do then
 Insert the records to the database
 
-On failing any of the tests, validation is stopped and a Toast is shown to the user containing apripriate message.
+On failing any of the tests, validation is stopped and a Toast is shown to the user containing apriopriate message.
