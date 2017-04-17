@@ -24,7 +24,7 @@ SHA-256 encryption and then the passwrod after Salting.
 Insert the records to the database
 
 On failing any of the tests, validation is stopped and a Toast is shown to the user containing apriopriate message.
-# Good Source on Password Encryption and Practices
+# Good Sources on Password Encryption and Practices
 
 Some sources I used to learn about password encryption.
 
