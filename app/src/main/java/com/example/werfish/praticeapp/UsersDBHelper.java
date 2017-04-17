@@ -25,9 +25,6 @@ public class UsersDBHelper  extends SQLiteOpenHelper {
     public static final String USERS_COLUMN_PHONE = "Phone";
     public static final String USERS_COLUMN_PASSWORD = "Password";
     public static final String USERS_COLUMN_ENCRYPTED_PASS = "Encrypted_Pass";
-    private HashMap hp;
-
-    //db.execSQL("CREATE TABLE IF NOT EXISTS Users (Name VARCHAR, Email VARCHAR, phone VARCHAR, Password VARCHAR);");
 
     public UsersDBHelper(Context context) {
         super(context, DATABASE_NAME , null, 1);
@@ -38,11 +35,6 @@ public class UsersDBHelper  extends SQLiteOpenHelper {
         // TODO Auto-generated method stub
         db.execSQL(
                 "CREATE TABLE IF NOT EXISTS Users (User_ID Integer Primary Key,Name VARCHAR, Email VARCHAR, Phone VARCHAR, Password VARCHAR, Encrypted_Pass VARCHAR);");
-
-        //Adding test Records
-       // db.execSQL("INSERT INTO Users VALUES ('Robert Mazurowski','someEmail@gmail.com','0048098141234','Vegetables'," + encryptPass("Vegetables") + "');");
-        //db.execSQL("INSERT INTO Users VALUES ('Stephen Stvens','stevel@stephen.com','0044806472867','Stv123','" + encryptPass("Stv123")  +"');");
-       // db.execSQL("INSERT INTO Users VALUES ('Tiger Vrom Woods','tigerFromWoodsl@gmail.com','NONE','Jungle987','" + encryptPass("Jungle978") + "');");
     }
 
     @Override
@@ -97,7 +89,6 @@ public class UsersDBHelper  extends SQLiteOpenHelper {
     public ArrayList<String> getAllUsers() {
         ArrayList<String> array_list = new ArrayList<String>();
 
-        //hp = new HashMap();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor =  db.rawQuery( "select * from Users;", null );
         cursor.moveToFirst();
