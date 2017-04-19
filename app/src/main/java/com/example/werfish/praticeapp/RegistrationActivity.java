@@ -27,16 +27,6 @@ public class RegistrationActivity extends AppCompatActivity {
         Button btnAdd = (Button) findViewById(R.id.button_addRecord);
         Button btnRecords = (Button) findViewById(R.id.button_Records);
 
-
-        //Insert test records to the database
-        if (db.numberOfRows() == 0)
-        {
-            db.insertUser("Robert Mazurowski","someEmail@gmail.com","0048098141234","Vegetables");
-            db.insertUser("Stephen Stvens","stevel@stephen.com","0044806472867","Stv123");
-            db.insertUser("Tiger Vrom Woods","tigerFromWoodsl@gmail.com","NONE","Vegetables");
-            db.insertUser("AnotherGuy WithTheSamePassword","iHavegenericPassword@gmail.com","0094666666","Vegetables");
-        }
-
         //set onclick listener for the adding button
         btnAdd.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
