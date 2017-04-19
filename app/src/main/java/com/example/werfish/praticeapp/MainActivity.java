@@ -20,8 +20,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //initializing all the text fields and buttons
-        final EditText nameField = (EditText) findViewById(R.id.nameTextField);
-        Button btnRecords = (Button) findViewById(R.id.button_Records);
+        final EditText userName = (EditText) findViewById(R.id.login_Name);
+        final EditText password = (EditText) findViewById(R.id.login_Password);
+
+        Button btnLogin = (Button) findViewById(R.id.login_LoginButton);
+        Button btnRegister = (Button) findViewById(R.id.login_ButtonRegistration);
+        Button btnUsers = (Button) findViewById(R.id.login_ButtonUsers);
 
 
         //Insert test records to the database
@@ -34,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //set onclick listener for the adding button
-        btnAdd.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Boolean validationFailed = Boolean.FALSE;
                 String errorMessage = null;
@@ -79,11 +83,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             private void clearFields(){
-                nameField.setText("");
-                emailField.setText("");
-                phoneField.setText("");
-                passField.setText("");
-                repeatPassField.setText("");
+                password.setText("");
             }
 
             private Boolean isNameEmpty(String name) {
@@ -122,7 +122,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnRecords.setOnClickListener(new View.OnClickListener() {
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
+                startActivity(intent);
+                clearFields();
+            }
+
+            private void clearFields(){
+                userName.setText("");
+                password.setText("");
+            }
+        });
+
+        btnUsers.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
@@ -132,7 +147,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
             private void clearFields(){
-
+                userName.setText("");
+                password.setText("");
             }
         });
 
