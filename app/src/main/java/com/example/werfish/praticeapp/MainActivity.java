@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //set onclick listener for the adding button
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+/*        btnLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Boolean validationFailed = Boolean.FALSE;
                 String errorMessage = null;
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                     return false;
                 }
             }
-        });
+        });*/
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
 
