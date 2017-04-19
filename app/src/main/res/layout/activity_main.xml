@@ -3,33 +3,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.werfish.praticeapp.MainActivity">
+    tools:context="com.example.werfish.praticeapp.MainActivity"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
+
+    <TextView
+        android:id="@+id/login_LabelTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Welcome to the practice User login/registration application. The goal of the app is to demostrate how do login/registration mechanisms work inluding validation, database and enrypting and salting user passwords."
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:id="@+id/login_LoginScreenLayout"
+        android:layout_below="@+id/login_LabelTitle"
+        android:layout_alignParentStart="true">
 
-        <TextView
-            android:id="@+id/topText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Login or Register new users in the database. Click Users to see users registered in the database."
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp"
-            />
-
-        <Button
-            android:id="@+id/button_Users"
+        <EditText
+            android:id="@+id/login_Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Registered Users"
-            />
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Name Surname"
+            android:textColor="#000000"
+            android:textColorHint="#f1434343" />
+
+        <EditText
+            android:id="@+id/login_Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="Password"
+            android:textColor="#000000"
+            android:textColorHint="#f1434343" />
+
+        <Button
+            android:id="@+id/login_LoginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Login" />
+
+        <Button
+            android:id="@+id/login_ButtonRegistration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Registration" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/login_ButtonUsers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Registered Users"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="40dp" />
 
 </RelativeLayout>
