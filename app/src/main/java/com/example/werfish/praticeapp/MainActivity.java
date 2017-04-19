@@ -21,12 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
         //initializing all the text fields and buttons
         final EditText nameField = (EditText) findViewById(R.id.nameTextField);
-        final EditText emailField = (EditText) findViewById(R.id.emailTextField);
-        final EditText phoneField = (EditText) findViewById(R.id.phoneTextField);
-        final EditText passField = (EditText) findViewById(R.id.passwordField);
-        final EditText repeatPassField = (EditText) findViewById(R.id.repeatPassField);
-
-        Button btnAdd = (Button) findViewById(R.id.button_addRecord);
         Button btnRecords = (Button) findViewById(R.id.button_Records);
 
 
@@ -46,10 +40,6 @@ public class MainActivity extends AppCompatActivity {
                 String errorMessage = null;
 
                 String name = nameField.getText().toString();
-                String email = emailField.getText().toString();
-                String phone = phoneField.getText().toString();
-                String password = passField.getText().toString();
-                String repeatPass = repeatPassField.getText().toString();
 
                 //Perform several validation checks
                 if(isNameEmpty(name)){
@@ -78,8 +68,6 @@ public class MainActivity extends AppCompatActivity {
                     errorToast.setGravity(Gravity.CENTER, 0, 0);
                     errorToast.show();
                 }else{
-
-                    db.insertUser(name,email,phone,password);
 
                     clearFields();
 
@@ -144,11 +132,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             private void clearFields(){
-                nameField.setText("");
-                emailField.setText("");
-                phoneField.setText("");
-                passField.setText("");
-                repeatPassField.setText("");
+
             }
         });
 
