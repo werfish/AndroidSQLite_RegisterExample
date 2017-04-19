@@ -25,7 +25,6 @@ public class RegistrationActivity extends AppCompatActivity {
         final EditText repeatPassField = (EditText) findViewById(R.id.repeatPassField);
 
         Button btnAdd = (Button) findViewById(R.id.button_addRecord);
-        Button btnRecords = (Button) findViewById(R.id.button_Records);
 
         //set onclick listener for the adding button
         btnAdd.setOnClickListener(new View.OnClickListener() {
@@ -119,24 +118,6 @@ public class RegistrationActivity extends AppCompatActivity {
                 }else{
                     return false;
                 }
-            }
-        });
-
-        btnRecords.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, UsersActivity.class);
-                startActivity(intent);
-                clearFields();
-            }
-
-            private void clearFields(){
-                nameField.setText("");
-                emailField.setText("");
-                phoneField.setText("");
-                passField.setText("");
-                repeatPassField.setText("");
             }
         });
 
