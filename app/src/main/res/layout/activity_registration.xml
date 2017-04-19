@@ -89,14 +89,6 @@
             android:layout_gravity="center_horizontal"
             android:text="Add"/>
 
-        <Button
-            android:id="@+id/button_Records"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Records List"
-            />
-
     </LinearLayout>
 
 </RelativeLayout>
